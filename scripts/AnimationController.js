@@ -5,7 +5,7 @@ class AnimationController {
     this.stateClasses = stateClasses;
   }
 
-  showElement(element, hiddenClass, withAnimation = true) {
+  showElement(element, { hiddenClass, withAnimation = true }) {
     element.style.display = 'block';
     if (withAnimation) {
       requestAnimationFrame(() => {
@@ -18,8 +18,9 @@ class AnimationController {
     }
   }
 
-  hideElement(element, hiddenClass, withAnimation = true) {
+  hideElement(element, { hiddenClass, withAnimation = true }) {
     element.classList.add(hiddenClass);
+
     if (withAnimation) {
       setTimeout(() => {
         element.style.display = 'none';
@@ -48,10 +49,7 @@ class AnimationController {
 
   async animateTaskSwap(
     taskListElement,
-    tasks,
-    taskElement,
-    taskIndex,
-    isChecked,
+    { tasks, taskElement, taskIndex, isChecked },
   ) {
     taskElement.style.position = 'relative';
     taskElement.style.zIndex = '1';

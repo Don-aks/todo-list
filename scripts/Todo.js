@@ -227,37 +227,32 @@ class Todo {
         : this.emptyListMessageSearchElement;
 
       // Скрываем ненужное сообщение
-      this.animation.hideElement(
-        messageToHide,
-        this.stateClasses.emptyListMessageHidden,
-        !isFirstRender,
-      );
+      this.animation.hideElement(messageToHide, {
+        hiddenClass: this.stateClasses.emptyListMessageHidden,
+        withAnimation: !isFirstRender,
+      });
 
       // Показываем нужное сообщение с анимацией
-      this.animation.showElement(
-        messageToShow,
-        this.stateClasses.emptyListMessageHidden,
-        !isFirstRender,
-      );
+      this.animation.showElement(messageToShow, {
+        hiddenClass: this.stateClasses.emptyListMessageHidden,
+        withAnimation: !isFirstRender,
+      });
     } else {
       // Скрываем оба сообщения
-      this.animation.hideElement(
-        this.emptyListMessageElement,
-        this.stateClasses.emptyListMessageHidden,
-        !isFirstRender,
-      );
-      this.animation.hideElement(
-        this.emptyListMessageSearchElement,
-        this.stateClasses.emptyListMessageHidden,
-        !isFirstRender,
-      );
+      this.animation.hideElement(this.emptyListMessageElement, {
+        hiddenClass: this.stateClasses.emptyListMessageHidden,
+        withAnimation: !isFirstRender,
+      });
+      this.animation.hideElement(this.emptyListMessageSearchElement, {
+        hiddenClass: this.stateClasses.emptyListMessageHidden,
+        withAnimation: !isFirstRender,
+      });
 
       // Показываем список задач
-      this.animation.showElement(
-        this.taskListElement,
-        this.stateClasses.listEmpty,
-        !isFirstRender,
-      );
+      this.animation.showElement(this.taskListElement, {
+        hiddenClass: this.stateClasses.listEmpty,
+        withAnimation: !isFirstRender,
+      });
     }
   }
 
@@ -294,13 +289,12 @@ class Todo {
     const isFirstTask = taskIndex === 0;
     if ((isChecked && isLastTask) || (!isChecked && isFirstTask)) return;
 
-    await this.animation.animateTaskSwap(
-      this.taskListElement,
+    await this.animation.animateTaskSwap(this.taskListElement, {
       tasks,
       taskElement,
       taskIndex,
       isChecked,
-    );
+    });
     this.tasks = this.tasks.filter(
       (task) => task.id !== taskElement.dataset.id,
     );
