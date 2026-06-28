@@ -11,8 +11,8 @@ class Todo {
     counter: '.todo__total-num',
     deleteAllBtn: '.todo__delete-btn',
     list: '.todo-list',
-    emptyListMessage: '.todo__message-about-empty-list',
-    emptyListMessageSearch: '.todo__message-about-empty-list--search',
+    emptyListMessage: '.todo__empty-list-message',
+    emptyListMessageSearch: '.todo__empty-list-message--search',
 
     task: '.task',
     taskLabel: '.task__label',
@@ -23,7 +23,7 @@ class Todo {
   stateClasses = {
     deleteAllHidden: 'todo__delete-btn--hidden',
     listEmpty: 'todo-list--empty',
-    emptyListMessageHidden: 'todo__message-about-empty-list--hidden',
+    emptyListMessageHidden: 'todo__empty-list-message--hidden',
 
     taskHidden: 'task--hidden',
     taskChangingPosition: 'task--changing-position',

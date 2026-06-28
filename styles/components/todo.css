@@ -95,7 +95,7 @@
 
 /* Empty list message */
 
-.todo__message-about-empty-list {
+.todo__empty-list-message {
   text-align: center;
 
   opacity: 1;
@@ -103,7 +103,7 @@
   transition: opacity 0.5s;
 }
 
-.todo__message-about-empty-list--hidden {
+.todo__empty-list-message--hidden {
   height: 0;
   opacity: 0;
   pointer-events: none;
