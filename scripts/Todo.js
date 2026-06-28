@@ -69,6 +69,7 @@ class Todo {
     this.searchQuery = '';
 
     this.animation = new AnimationController(this.stateClasses);
+
     this.render(true);
     this.bindEventListeners();
   }
@@ -106,11 +107,13 @@ class Todo {
   toggleTaskCompletion(taskId) {
     const task = this.tasks.find((task) => task.id === taskId);
     if (!task) return;
+
     task.isChecked = !task.isChecked;
     this.#saveTasksToLocalStorage();
 
     const taskElement = this.#getTask(taskId);
     if (!taskElement) return;
+
     this.#setTaskElementState(taskElement, task.isChecked);
     this.#renderInfo();
   }
@@ -174,6 +177,7 @@ class Todo {
 
   #renderInfo() {
     this.counterElement.textContent = this.tasks.length;
+
     this.deleteAllBtnElement.classList.toggle(
       this.stateClasses.deleteAllHidden,
       this.tasks.length === 0,
@@ -265,6 +269,7 @@ class Todo {
     const taskElement = document.createElement('li');
     taskElement.className = `task ${this.stateClasses.taskHidden} todo-list__task border rounded`;
     taskElement.setAttribute('data-id', task.id);
+
     taskElement.innerHTML = `
       <input
         class="task__checkbox"
@@ -297,19 +302,23 @@ class Todo {
       taskIndex,
       isChecked,
     });
+
     this.tasks = this.tasks.filter(
       (task) => task.id !== taskElement.dataset.id,
     );
+
     const taskData = {
       id: taskElement.getAttribute('data-id'),
       title: taskElement.querySelector(this.selectors.taskLabel).textContent,
       isChecked,
     };
+
     if (isChecked) {
       this.tasks.push(taskData);
     } else {
       this.tasks.unshift(taskData);
     }
+
     this.#saveTasksToLocalStorage();
   }
 
@@ -320,6 +329,7 @@ class Todo {
 
     this.addTask(title);
     this.resetFilter();
+
     this.addInputElement.value = '';
     this.addInputElement.focus();
   };

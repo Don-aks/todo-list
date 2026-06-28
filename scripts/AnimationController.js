@@ -7,6 +7,7 @@ class AnimationController {
 
   showElement(element, { hiddenClass, withAnimation = true }) {
     element.style.display = 'block';
+
     if (withAnimation) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -42,6 +43,7 @@ class AnimationController {
 
   deleteTask(taskElement) {
     taskElement.style.height = `${taskElement.offsetHeight}px`;
+
     requestAnimationFrame(() => {
       taskElement.classList.add('task--hidden');
     });
@@ -85,6 +87,7 @@ class AnimationController {
     await wait(transitionDuration);
 
     const task = taskElement.cloneNode(true);
+
     task.style.position = '';
     task.style.zIndex = '';
     task.style.transform = '';
