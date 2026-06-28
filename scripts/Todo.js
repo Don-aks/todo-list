@@ -176,7 +176,9 @@ class Todo {
   }
 
   #renderInfo() {
-    this.counterElement.textContent = this.tasks.length;
+    const tasks = this.filteredTasks ?? this.tasks;
+
+    this.counterElement.textContent = tasks.length;
 
     this.deleteAllBtnElement.classList.toggle(
       this.stateClasses.deleteAllHidden,
