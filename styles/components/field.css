@@ -1,0 +1,97 @@
+/* Field */
+
+.field {
+  width: 100%;
+
+  transition: padding-top 0.3s;
+
+  &:hover {
+    .field__input {
+      background-color: var(--color-bg-alt);
+    }
+  }
+
+  &:has(.field__input:not(:placeholder-shown)) {
+    padding-top: 12px;
+  }
+}
+
+.field__inner {
+  position: relative;
+}
+
+/* Input */
+
+.field__input {
+  width: 100%;
+  padding-block: 12px;
+  padding-inline: 13px 14px;
+
+  background-color: var(--color-bg-main);
+  transition:
+    box-shadow 0.3s,
+    background-color 0.3s,
+    border-color 0.3s;
+
+  &:focus-visible {
+    outline: transparent;
+    border-color: var(--color-border-focus);
+    box-shadow: var(--box-shadow-default);
+  }
+
+  &:not(:placeholder-shown) + .field__placeholder {
+    color: var(--color-text-primary);
+    transform: translate(-14px, -217%) scale(0.9);
+  }
+
+  &:placeholder-shown ~ .field__reset-btn {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Placeholder */
+
+.field__placeholder {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+
+  color: var(--color-text-placeholder);
+  transition:
+    color 0.3s,
+    transform 0.3s,
+    opacity 0.3s;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Reset button */
+
+.field__reset-btn {
+  position: absolute;
+  top: 50%;
+  right: 35px;
+
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+
+  transform: translateY(-50%);
+  cursor: pointer;
+
+  &:hover {
+    .field__reset-icon {
+      stroke: var(--color-icon-hover);
+    }
+  }
+}
+
+.field__reset-icon {
+  width: 12px;
+  height: 12px;
+
+  stroke: var(--color-icon-default);
+  transition: stroke 0.3s;
+}

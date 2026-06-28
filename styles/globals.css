@@ -1,0 +1,19 @@
+/* Globals */
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font:
+    400 16px/1.4 Inter,
+    system-ui;
+
+  color: var(--color-text-default);
+  background-color: var(--color-bg-main);
+}

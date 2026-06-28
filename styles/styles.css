@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import url('reset.css');
+@import url('variables.css');
+@import url('utilities.css');
+@import url('globals.css');
+
+@import url('components/field.css');
+@import url('components/btn.css');
+@import url('components/todo.css');
+@import url('components/todo-list.css');
+@import url('components/task.css');

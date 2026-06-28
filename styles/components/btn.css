@@ -1,0 +1,34 @@
+/* Btn */
+
+.btn {
+  padding: 11px 12px;
+
+  color: var(--color-btn-text);
+  background-color: var(--color-btn-bg);
+  border: 2px solid var(--color-btn-bg);
+
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s,
+    border-color 0.3s,
+    transform 0.1s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-btn-bg-hover);
+    box-shadow: var(--box-shadow-default);
+  }
+
+  &:focus-visible,
+  &:active {
+    background-color: var(--color-btn-text);
+    color: var(--color-btn-bg);
+    box-shadow: var(--box-shadow-default);
+    outline: transparent;
+  }
+
+  &:disabled {
+    background-color: var(--color-stone-400);
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,17 @@
+/* Todo-list */
+
+.todo-list {
+  transition: height 0.3s;
+}
+
+.todo-list--empty {
+  position: absolute;
+  height: 0 !important;
+
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.todo-list__task:not(:last-child) {
+  margin-bottom: var(--row-gap-sm);
+}
