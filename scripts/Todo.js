@@ -221,8 +221,10 @@ class Todo {
     // Управление отображением списка задач и сообщений
     if (isEmpty) {
       // Список пуст - мгновенно скрываем список и показываем соответствующее сообщение
-      this.taskListElement.classList.add(this.stateClasses.listEmpty);
-      this.taskListElement.style.display = 'none';
+      this.animation.hideElement(this.taskListElement, {
+        hiddenClass: this.stateClasses.listEmpty,
+        withAnimation: false,
+      });
 
       // Показываем нужное сообщение
       const messageToShow = isSearch
