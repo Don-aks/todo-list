@@ -237,23 +237,25 @@ class Todo {
         hiddenClass: this.stateClasses.emptyListMessageHidden,
         withAnimation: !isFirstRender,
       });
-    } else {
-      // Скрываем оба сообщения
-      this.animation.hideElement(this.emptyListMessageElement, {
-        hiddenClass: this.stateClasses.emptyListMessageHidden,
-        withAnimation: !isFirstRender,
-      });
-      this.animation.hideElement(this.emptyListMessageSearchElement, {
-        hiddenClass: this.stateClasses.emptyListMessageHidden,
-        withAnimation: !isFirstRender,
-      });
 
-      // Показываем список задач
-      this.animation.showElement(this.taskListElement, {
-        hiddenClass: this.stateClasses.listEmpty,
-        withAnimation: !isFirstRender,
-      });
+      return;
     }
+
+    // Скрываем оба сообщения
+    this.animation.hideElement(this.emptyListMessageElement, {
+      hiddenClass: this.stateClasses.emptyListMessageHidden,
+      withAnimation: !isFirstRender,
+    });
+    this.animation.hideElement(this.emptyListMessageSearchElement, {
+      hiddenClass: this.stateClasses.emptyListMessageHidden,
+      withAnimation: !isFirstRender,
+    });
+
+    // Показываем список задач
+    this.animation.showElement(this.taskListElement, {
+      hiddenClass: this.stateClasses.listEmpty,
+      withAnimation: !isFirstRender,
+    });
   }
 
   #addTaskElement(task) {

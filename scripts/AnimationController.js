@@ -13,9 +13,11 @@ class AnimationController {
           element.classList.remove(hiddenClass);
         });
       });
-    } else {
-      element.classList.remove(hiddenClass);
+
+      return;
     }
+
+    element.classList.remove(hiddenClass);
   }
 
   hideElement(element, { hiddenClass, withAnimation = true }) {
@@ -25,9 +27,11 @@ class AnimationController {
       setTimeout(() => {
         element.style.display = 'none';
       }, getTransitionDurationInMs(element));
-    } else {
-      element.style.display = 'none';
+
+      return;
     }
+
+    element.style.display = 'none';
   }
 
   showTask(taskElement) {
