@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>To-Do list</title>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="scripts/main.js" type="module"></script>
+  </head>
+  <body>
+    <section class="todo border rounded">
+      <header class="todo__header">
+        <h1 class="todo__title">To Do List</h1>
+      </header>
+
+      <form class="todo__add-form">
+        <div class="field">
+          <div class="field__inner">
+            <input
+              class="field__input todo__add-input border rounded placeholder-default"
+              name="task"
+              id="todo-task"
+              type="text"
+              autocomplete="off"
+              placeholder=""
+              value=""
+            />
+            <label class="field__placeholder" for="todo-task">
+              New task title
+            </label>
+          </div>
+        </div>
+        <input class="btn todo__add-btn rounded" type="submit" value="Add" />
+      </form>
+
+      <form class="todo__search">
+        <div class="field">
+          <div class="field__inner">
+            <input
+              class="todo__search-input field__input border rounded placeholder-default"
+              name="query"
+              id="todo-search-query"
+              type="search"
+              placeholder=""
+              value=""
+            />
+            <label class="field__placeholder" for="todo-search-query">
+              Search task
+            </label>
+            <button class="field__reset-btn" type="reset">
+              <svg class="field__reset-icon">
+                <use href="sprite.svg#close"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="todo__info">
+        <span class="todo__total-container">
+          Total tasks:
+          <span class="todo__total-num">0</span>
+        </span>
+        <button class="todo__delete-btn" type="button">Delete All</button>
+      </div>
+
+      <ul class="todo-list" style="display: none">
+        <!-- <li class="task todo-list__task border rounded">
+          <input class="task__checkbox" type="checkbox" id="task-1" />
+          <label class="task__label" for="task-1">Todo 1</label>
+          <button class="task__delete-btn" type="button">
+            <svg class="task__delete-icon">
+              <use href="sprite.svg#close"></use>
+            </svg>
+          </button>
+        </li>
+
+        <li class="task todo-list__task border rounded">
+          <input class="task__checkbox" type="checkbox" id="task-2" />
+          <label class="task__label" for="task-2">Todo 2</label>
+          <button class="task__delete-btn" type="button">
+            <svg class="task__delete-icon">
+              <use href="sprite.svg#close"></use>
+            </svg>
+          </button>
+        </li>
+
+        <li class="task todo-list__task border rounded">
+          <input class="task__checkbox" type="checkbox" id="task-3" />
+          <label class="task__label" for="task-3">Todo 3</label>
+          <button class="task__delete-btn" type="button">
+            <svg class="task__delete-icon">
+              <use href="sprite.svg#close"></use>
+            </svg>
+          </button>
+        </li> -->
+      </ul>
+
+      <p class="todo__message-about-empty-list">Your To-Do list is empty.</p>
+      <p
+        class="todo__message-about-empty-list todo__message-about-empty-list--search"
+      >
+        No results.
+      </p>
+    </section>
+  </body>
+</html>
