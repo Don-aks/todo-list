@@ -7,7 +7,8 @@
   --row-gap-sm: 8px;
 
   /* Shadows */
-  --box-shadow-default: 0 4px 4px -4px rgba(12, 12, 13, 0.05),
+  --box-shadow-default:
+    0 4px 4px -4px rgba(12, 12, 13, 0.05),
     0 16px 32px -4px rgba(12, 12, 13, 0.1);
 
   /* Pallete */
@@ -47,15 +48,6 @@
   --color-todo-checkbox-border: var(--color-stone-600);
 }
 
-@keyframes scale-down {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
-
 /* Utilities */
 
 .border {
@@ -91,7 +83,9 @@ body {
   justify-content: center;
   align-items: center;
 
-  font: 400 16px/1.4 Inter, system-ui;
+  font:
+    400 16px/1.4 Inter,
+    system-ui;
 
   color: var(--color-text-default);
   background-color: var(--color-bg-main);
@@ -125,7 +119,10 @@ body {
   padding-inline: 13px 14px;
 
   background-color: var(--color-bg-main);
-  transition: box-shadow 0.3s, background-color 0.3s, border-color 0.3s;
+  transition:
+    box-shadow 0.3s,
+    background-color 0.3s,
+    border-color 0.3s;
 
   &:focus-visible {
     outline: transparent;
@@ -150,7 +147,10 @@ body {
   top: 50%;
 
   color: var(--color-text-placeholder);
-  transition: color 0.3s, transform 0.3s, opacity 0.3s;
+  transition:
+    color 0.3s,
+    transform 0.3s,
+    opacity 0.3s;
   transform: translateY(-50%);
   pointer-events: none;
 }
@@ -192,7 +192,10 @@ body {
   background-color: var(--color-btn-bg);
   border: 2px solid var(--color-btn-bg);
 
-  transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s,
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s,
+    border-color 0.3s,
     transform 0.1s;
   cursor: pointer;
 
@@ -341,7 +344,11 @@ body {
   padding: 10px 12px;
 
   background-color: var(--color-bg-main);
-  transition: background-color 0.3s, transform 0.3s, height 0.3s, padding 0.3s,
+  transition:
+    background-color 0.3s,
+    transform 0.3s,
+    height 0.3s,
+    padding 0.3s,
     scale 0.3s;
 
   &:hover:not(.task--hidden) {
@@ -374,7 +381,10 @@ body {
   border: 1px solid var(--color-todo-checkbox-border);
   border-radius: 4px;
 
-  transition: background-color 0.1s, border-color 0.1s, transform 0.2s;
+  transition:
+    background-color 0.1s,
+    border-color 0.1s,
+    transform 0.2s;
   transform: scaleX(-1);
   appearance: none;
 
