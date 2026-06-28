@@ -133,7 +133,7 @@ class Todo {
   }
 
   bindEventListeners() {
-    this.addFormElement.addEventListener('submit', this.#onAddFormSubmit);
+    this.addFormElement.addEventListener('submit', this.#onAddTaskFormSubmit);
 
     this.searchFormElement.addEventListener(
       'submit',
@@ -326,7 +326,7 @@ class Todo {
     this.#saveTasksToLocalStorage();
   }
 
-  #onAddFormSubmit = (event) => {
+  #onAddTaskFormSubmit = (event) => {
     event.preventDefault();
     const title = this.addInputElement.value.trim();
     if (title === '') return;
