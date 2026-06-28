@@ -37,7 +37,7 @@ class Todo {
 
   #getTask(id) {
     return this.taskListElement.querySelector(
-      `${this.selectors.task}[data-id="${id}"]`
+      `${this.selectors.task}[data-id="${id}"]`,
     );
   }
 
@@ -51,10 +51,10 @@ class Todo {
     this.deleteAllBtnElement = this.#getElement(this.selectors.deleteAllBtn);
     this.taskListElement = this.#getElement(this.selectors.list);
     this.emptyListMessageElement = this.#getElement(
-      this.selectors.emptyListMessage
+      this.selectors.emptyListMessage,
     );
     this.emptyListMessageSearchElement = this.#getElement(
-      this.selectors.emptyListMessageSearch
+      this.selectors.emptyListMessageSearch,
     );
 
     this.initialize();
@@ -119,7 +119,7 @@ class Todo {
     this.searchQuery = query.trim().toLowerCase();
 
     this.filteredTasks = this.tasks.filter((task) =>
-      task.title.toLowerCase().includes(this.searchQuery)
+      task.title.toLowerCase().includes(this.searchQuery),
     );
     this.render();
   }
@@ -134,20 +134,20 @@ class Todo {
 
     this.searchFormElement.addEventListener(
       'submit',
-      this.#onSearchTaskFormSubmit
+      this.#onSearchTaskFormSubmit,
     );
     this.searchFormElement.addEventListener(
       'reset',
-      this.#onSearchTaskFormClear
+      this.#onSearchTaskFormClear,
     );
     this.searchInputElement.addEventListener(
       'input',
-      this.#onSearchTaskInputChange
+      this.#onSearchTaskInputChange,
     );
 
     this.deleteAllBtnElement.addEventListener(
       'click',
-      this.#onDeleteAllBtnClick
+      this.#onDeleteAllBtnClick,
     );
 
     this.taskListElement.addEventListener('click', this.#onTaskListClick);
@@ -176,7 +176,7 @@ class Todo {
     this.counterElement.textContent = this.tasks.length;
     this.deleteAllBtnElement.classList.toggle(
       this.stateClasses.deleteAllHidden,
-      this.tasks.length === 0
+      this.tasks.length === 0,
     );
   }
 
@@ -202,7 +202,7 @@ class Todo {
             </svg>
           </button>
         </li>
-    `
+    `,
       )
       .join('');
   }
@@ -230,33 +230,33 @@ class Todo {
       this.animation.hideElement(
         messageToHide,
         this.stateClasses.emptyListMessageHidden,
-        !isFirstRender
+        !isFirstRender,
       );
 
       // Показываем нужное сообщение с анимацией
       this.animation.showElement(
         messageToShow,
         this.stateClasses.emptyListMessageHidden,
-        !isFirstRender
+        !isFirstRender,
       );
     } else {
       // Скрываем оба сообщения
       this.animation.hideElement(
         this.emptyListMessageElement,
         this.stateClasses.emptyListMessageHidden,
-        !isFirstRender
+        !isFirstRender,
       );
       this.animation.hideElement(
         this.emptyListMessageSearchElement,
         this.stateClasses.emptyListMessageHidden,
-        !isFirstRender
+        !isFirstRender,
       );
 
       // Показываем список задач
       this.animation.showElement(
         this.taskListElement,
         this.stateClasses.listEmpty,
-        !isFirstRender
+        !isFirstRender,
       );
     }
   }
@@ -299,10 +299,10 @@ class Todo {
       tasks,
       taskElement,
       taskIndex,
-      isChecked
+      isChecked,
     );
     this.tasks = this.tasks.filter(
-      (task) => task.id !== taskElement.dataset.id
+      (task) => task.id !== taskElement.dataset.id,
     );
     const taskData = {
       id: taskElement.getAttribute('data-id'),
@@ -365,7 +365,7 @@ class Todo {
     }
 
     this.tasks = this.tasks.filter(
-      (task) => !task.title.includes(this.searchQuery)
+      (task) => !task.title.includes(this.searchQuery),
     );
     this.#saveTasksToLocalStorage();
     this.render();
