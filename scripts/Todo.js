@@ -76,14 +76,16 @@ class Todo {
 
     this.animation = new AnimationController(this.stateClasses);
 
-    this.render(true);
+    this.render();
+    this.animation.showHideWithAnimation = true;
+
     this.bindEventListeners();
   }
 
-  render(isFirstRender = false) {
+  render() {
     this.#renderInfo();
     this.#renderTasks();
-    this.#renderNoTasksInfoMessages(isFirstRender);
+    this.#renderNoTasksInfoMessages();
   }
 
   addTask(title) {

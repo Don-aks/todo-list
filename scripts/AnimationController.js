@@ -1,6 +1,9 @@
 import { getTransitionDurationInMs, wait } from './utilities.js';
 
 class AnimationController {
+  // disabled by default because first render is not animated
+  showHideWithAnimation = false;
+
   constructor(stateClasses) {
     this.stateClasses = stateClasses;
   }
@@ -8,7 +11,7 @@ class AnimationController {
   showElement(element, { hiddenClass, withAnimation = true }) {
     element.style.display = 'block';
 
-    if (withAnimation) {
+    if (this.showHideWithAnimation) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           element.classList.remove(hiddenClass);
@@ -24,7 +27,7 @@ class AnimationController {
   hideElement(element, { hiddenClass, withAnimation = true }) {
     element.classList.add(hiddenClass);
 
-    if (withAnimation) {
+    if (this.showHideWithAnimation) {
       element.addEventListener(
         'transitionend',
         () => {
