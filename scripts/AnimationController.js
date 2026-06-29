@@ -25,9 +25,13 @@ class AnimationController {
     element.classList.add(hiddenClass);
 
     if (withAnimation) {
-      setTimeout(() => {
-        element.style.display = 'none';
-      }, getTransitionDurationInMs(element));
+      element.addEventListener(
+        'transitionend',
+        () => {
+          element.style.display = 'none';
+        },
+        { once: true },
+      );
 
       return;
     }
@@ -48,9 +52,9 @@ class AnimationController {
       taskElement.classList.add('task--hidden');
     });
 
-    setTimeout(() => {
-      taskElement.remove();
-    }, getTransitionDurationInMs(taskElement));
+    taskElement.addEventListener('transitionend', taskElement.remove, {
+      once: true,
+    });
   }
 
   async animateTaskSwap(
