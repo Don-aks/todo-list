@@ -24,6 +24,8 @@ class Todo {
     taskDeleteBtn: '.task__delete-btn',
   };
 
+  taskUtilityClasses = 'border rounded';
+
   stateClasses = {
     deleteAllHidden: 'todo__delete-btn--hidden',
     listEmpty: 'todo-list--empty',
@@ -275,7 +277,13 @@ class Todo {
     if (!title.toLowerCase().includes(this.searchQuery)) return;
 
     const taskElement = document.createElement('li');
-    taskElement.className = `task ${this.stateClasses.taskHidden} todo-list__task border rounded`;
+
+    taskElement.className = `
+      task
+      todo-list__task
+      ${this.taskUtilityClasses}
+      ${this.stateClasses.taskHidden}
+    `;
     taskElement.setAttribute('data-id', task.id);
 
     taskElement.innerHTML = `
