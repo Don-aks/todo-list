@@ -273,9 +273,16 @@ class Todo {
   }
 
   #addTaskElement(task) {
-    const { id, title, isChecked } = task;
-    if (!title.toLowerCase().includes(this.searchQuery)) return;
+    if (!task.title.toLowerCase().includes(this.searchQuery)) return;
 
+    const element = this.#createTaskElement(task);
+
+    this.taskListElement.appendChild(element);
+    this.animation.showTask(element);
+  }
+
+  #createTaskElement(task) {
+    const { id, title, isChecked } = task;
     const taskElement = document.createElement('li');
 
     taskElement.className = `
@@ -300,8 +307,8 @@ class Todo {
         </svg>
       </button>
     `;
-    this.taskListElement.appendChild(taskElement);
-    this.animation.showTask(taskElement);
+
+    return taskElement;
   }
 
   async #setTaskElementState(taskElement, isChecked) {
