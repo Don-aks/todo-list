@@ -1,5 +1,9 @@
-import { getElement, getTransitionDurationInMs } from './utilities.js';
 import AnimationController from './AnimationController.js';
+import {
+  getElement,
+  getTransitionDurationInMs,
+  debounce,
+} from './utilities.js';
 
 class Todo {
   selectors = {
@@ -145,7 +149,7 @@ class Todo {
     );
     this.searchInputElement.addEventListener(
       'input',
-      this.#onSearchTaskInputChange,
+      debounce(this.#onSearchTaskInputChange, 150),
     );
 
     this.deleteAllBtnElement.addEventListener(
